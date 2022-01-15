@@ -1,8 +1,6 @@
 package academy.devdojo.SpringBootEssentials.service;
 
 import academy.devdojo.SpringBootEssentials.domain.Anime;
-import academy.devdojo.SpringBootEssentials.repository.AnimeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -40,6 +38,11 @@ public class AnimeService {
 
     public void delete(Long id) {
         animes.remove(findById(id));
+    }
+
+    public void replace(Anime anime) {
+        delete(anime.getId());
+        animes.add(anime);
 
     }
 }
