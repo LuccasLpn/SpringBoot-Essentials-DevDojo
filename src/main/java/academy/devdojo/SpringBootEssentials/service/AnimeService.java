@@ -7,9 +7,8 @@ import academy.devdojo.SpringBootEssentials.repository.AnimeRepository;
 import academy.devdojo.SpringBootEssentials.requests.AnimePostRequestBody;
 import academy.devdojo.SpringBootEssentials.requests.AnimePutRequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,19 +19,20 @@ public class AnimeService {
     private AnimeRepository animeRepository;
 
 
-    public List<Anime> listAll(){
+    public List<Anime> listAll() {
         return animeRepository.findAll();
     }
 
-    public List<Anime> findByName(String name){
+    public List<Anime> findByName(String name) {
         return animeRepository.findByName(name);
     }
 
-    public Anime findByIdOrThrowBadRequestException(Long id){
+    public Anime findByIdOrThrowBadRequestException(Long id) {
         return animeRepository.findById(id)
                 .orElseThrow(() -> new BadRequestException("Anime ID Not Found"));
     }
 
+    @Transactional(rollbackFor = Exception.class)
     public Anime save(AnimePostRequestBody animePostRequestBody) {
         return animeRepository.save(AnimeMapper.INSTANCE.toAnime(animePostRequestBody));
     }
