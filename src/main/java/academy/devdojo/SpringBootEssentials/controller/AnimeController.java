@@ -22,6 +22,7 @@ public class AnimeController {
     @Autowired
     private AnimeService animeService;
 
+
     @GetMapping
     public ResponseEntity<List<Anime>> list() {
         return ResponseEntity.ok(animeService.listAll());
@@ -36,8 +37,6 @@ public class AnimeController {
     public ResponseEntity<List<Anime>>findByName(@RequestParam String name){
         return ResponseEntity.ok(animeService.findByName(name));
     }
-
-
 
     @PostMapping
     public ResponseEntity<Anime> save(@RequestBody AnimePostRequestBody animePostRequestBody) {
