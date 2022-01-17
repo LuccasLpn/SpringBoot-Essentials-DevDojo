@@ -1,7 +1,6 @@
 package academy.devdojo.SpringBootEssentials.requests;
 
 import lombok.Data;
-import org.springframework.lang.Nullable;
 
 import javax.validation.constraints.NotEmpty;
 
