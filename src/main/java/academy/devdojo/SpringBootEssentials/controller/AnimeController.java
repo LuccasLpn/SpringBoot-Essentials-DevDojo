@@ -6,6 +6,8 @@ import academy.devdojo.SpringBootEssentials.requests.AnimePutRequestBody;
 import academy.devdojo.SpringBootEssentials.service.AnimeService;
 import academy.devdojo.SpringBootEssentials.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +27,9 @@ public class AnimeController {
 
 
     @GetMapping
-    public ResponseEntity<List<Anime>> list() {
-        return ResponseEntity.ok(animeService.listAll());
+    public ResponseEntity<Page<Anime>> list(Pageable pageable) {
+
+        return ResponseEntity.ok(animeService.listAll(pageable));
     }
 
     @GetMapping(path = "/{id}")

@@ -16,4 +16,5 @@ public abstract class AnimeMapper {
 
     public abstract Anime toAnime(AnimePutRequestBody animePostRequestBody);
 
+
 }
