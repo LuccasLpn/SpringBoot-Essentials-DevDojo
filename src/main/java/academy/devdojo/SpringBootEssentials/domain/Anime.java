@@ -1,7 +1,6 @@
 package academy.devdojo.SpringBootEssentials.domain;
 
 import lombok.*;
-import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -17,7 +16,7 @@ public class Anime {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotEmpty(message = "The Anime name cannot be empty")
     private String name;
 
 }
