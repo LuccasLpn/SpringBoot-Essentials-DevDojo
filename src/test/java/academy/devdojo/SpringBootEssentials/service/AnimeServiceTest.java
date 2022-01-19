@@ -109,10 +109,8 @@ class animeRepositoryTest {
 
         Assertions.assertThatExceptionOfType(BadRequestException.class)
                 .isThrownBy (() -> animeService.findByIdOrThrowBadRequestException(1L));
-        
     }
-
-
+    
 
     @Test
     @DisplayName("findByName Return a list of anime when successful")

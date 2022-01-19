@@ -10,6 +10,7 @@ public class AnimeCreator {
                 .name("Tokyo Ghoul")
                 .build();
     }
+
     public static Anime createAnimeValidAnime(){
         return Anime
                 .builder()
