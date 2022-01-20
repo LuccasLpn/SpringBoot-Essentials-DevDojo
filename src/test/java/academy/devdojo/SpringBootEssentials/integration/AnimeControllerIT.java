@@ -2,32 +2,22 @@ package academy.devdojo.SpringBootEssentials.integration;
 
 import academy.devdojo.SpringBootEssentials.domain.Anime;
 import academy.devdojo.SpringBootEssentials.repository.AnimeRepository;
-import academy.devdojo.SpringBootEssentials.requests.AnimePostRequestBody;
-import academy.devdojo.SpringBootEssentials.requests.AnimePutRequestBody;
 import academy.devdojo.SpringBootEssentials.util.AnimeCreator;
-import academy.devdojo.SpringBootEssentials.util.AnimePostRequestBodyCreator;
-import academy.devdojo.SpringBootEssentials.util.AnimePutRequestBodyCreator;
 import academy.devdojo.SpringBootEssentials.wrapper.PageableResponse;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
-import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 
-import java.util.Collections;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
