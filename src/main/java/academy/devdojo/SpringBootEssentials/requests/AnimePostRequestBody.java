@@ -12,8 +12,5 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AnimePostRequestBody {
-
-    @NotEmpty(message = "The Anime name cannot be empty")
     private String name;
-
 }

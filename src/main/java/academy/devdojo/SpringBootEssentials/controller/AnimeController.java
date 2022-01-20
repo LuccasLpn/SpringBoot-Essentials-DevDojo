@@ -4,8 +4,8 @@ import academy.devdojo.SpringBootEssentials.domain.Anime;
 import academy.devdojo.SpringBootEssentials.requests.AnimePostRequestBody;
 import academy.devdojo.SpringBootEssentials.requests.AnimePutRequestBody;
 import academy.devdojo.SpringBootEssentials.service.AnimeService;
-import academy.devdojo.SpringBootEssentials.util.DateUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -17,23 +17,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("animes")
+@Log4j2
+@RequiredArgsConstructor
 public class AnimeController {
-
-    @Autowired
-    private DateUtil dateUtil;
-
-    @Autowired
-    private AnimeService animeService;
-
-
-    @GetMapping(path = "/all")
-    public ResponseEntity<List<Anime>> listAll() {
-        return ResponseEntity.ok(animeService.listAllNonPageable());
-    }
+    private final AnimeService animeService;
 
     @GetMapping
     public ResponseEntity<Page<Anime>> list(Pageable pageable) {
         return ResponseEntity.ok(animeService.listAll(pageable));
+    }
+
+    @GetMapping(path = "/all")
+    public ResponseEntity<List<Anime>> listAll() {
+        return ResponseEntity.ok(animeService.listAllNonPageable());
     }
 
     @GetMapping(path = "/{id}")
@@ -42,7 +38,7 @@ public class AnimeController {
     }
 
     @GetMapping(path = "/find")
-    public ResponseEntity<List<Anime>>findByName(@RequestParam String name){
+    public ResponseEntity<List<Anime>> findByName(@RequestParam String name) {
         return ResponseEntity.ok(animeService.findByName(name));
     }
 
@@ -62,5 +58,4 @@ public class AnimeController {
         animeService.replace(animePutRequestBody);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }

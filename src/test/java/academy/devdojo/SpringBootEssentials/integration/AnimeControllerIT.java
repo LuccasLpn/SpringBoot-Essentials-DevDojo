@@ -2,7 +2,9 @@ package academy.devdojo.SpringBootEssentials.integration;
 
 import academy.devdojo.SpringBootEssentials.domain.Anime;
 import academy.devdojo.SpringBootEssentials.repository.AnimeRepository;
+import academy.devdojo.SpringBootEssentials.requests.AnimePostRequestBody;
 import academy.devdojo.SpringBootEssentials.util.AnimeCreator;
+import academy.devdojo.SpringBootEssentials.util.AnimePostRequestBodyCreator;
 import academy.devdojo.SpringBootEssentials.wrapper.PageableResponse;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -111,7 +114,7 @@ public class AnimeControllerIT {
                .isEmpty();
     }
 
-/*    @Test
+  @Test
     @DisplayName("save returns anime when successful")
     void save_ReturnsAnime_WhenSuccessful(){
         AnimePostRequestBody animePostRequestBody =
@@ -138,7 +141,7 @@ public class AnimeControllerIT {
                 Void.class);
         Assertions.assertThat(animeResponseEntity).isNotNull();
         Assertions.assertThat(animeResponseEntity.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
-    }*/
+    }
 
     @Test
     @DisplayName("delete removes anime when successful")
