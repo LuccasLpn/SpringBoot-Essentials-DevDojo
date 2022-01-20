@@ -6,6 +6,8 @@ import academy.devdojo.SpringBootEssentials.mapper.AnimeMapper;
 import academy.devdojo.SpringBootEssentials.repository.AnimeRepository;
 import academy.devdojo.SpringBootEssentials.requests.AnimePostRequestBody;
 import academy.devdojo.SpringBootEssentials.requests.AnimePutRequestBody;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package academy.devdojo.SpringBootEssentials.client;
+package academy.devdojo.SpringBootEssentials.configurer.client;
 
 import academy.devdojo.SpringBootEssentials.domain.Anime;
 import lombok.extern.log4j.Log4j2;
@@ -69,5 +69,7 @@ public class SpringCLient {
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         return httpHeaders;
     }
+
+
 
 }
