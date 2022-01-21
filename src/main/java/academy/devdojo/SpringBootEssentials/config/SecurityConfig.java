@@ -37,6 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 //               .and()
                 .authorizeHttpRequests()
+                .antMatchers("/animes/admin/**").hasRole("ADMIN")
+                .antMatchers("/animes/**").hasRole("USER")
                 .anyRequest()
                 .authenticated()
                 .and()
