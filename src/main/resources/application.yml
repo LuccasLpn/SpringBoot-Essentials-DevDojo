@@ -21,9 +21,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
-
-info:
-  app: Curso Spring
-  github: https://github.com/LuccasLpn
-  linkedin: https://www.linkedin.com/in/luccas-pereira
+        include: info, health, metrics, prometheus
