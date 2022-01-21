@@ -3,6 +3,8 @@ server:
     include-stacktrace: on_param
 
 spring:
+  application:
+    name: springBoot
   datasource:
     url: jdbc:mysql://localhost:3306/anime?&createDatabaseIfNotExist=true
     username: root
