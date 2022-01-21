@@ -8,12 +8,23 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @EnableWebSecurity
 @Log4j2
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    /**
+     * BasicAuthenticationFilter
+     * UserNameAuthenticationFilter
+     * DefaultLoginPageGenerationFilter
+     * DefaultLogoutPageGenerationFilter
+     * FilterSecurityInterceptor
+     * Authentication -> Authorization
+     * @param http
+     * @throws Exception
+     */
+
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -23,6 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeHttpRequests()
                 .anyRequest()
                 .authenticated()
+                .and()
+                .formLogin()
                 .and()
                 .httpBasic();
     }
